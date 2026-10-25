@@ -18,6 +18,7 @@ unsigned long UltrasSimple::read() {
     digitalWrite(_trigPin, LOW);
 
     unsigned long duration = pulseIn(_echoPin, HIGH);
+    return duration;
 }
 
 float UltrasSimple::readDistanceCm() {

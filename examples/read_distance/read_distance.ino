@@ -12,12 +12,12 @@ void loop() {
     float distanceIn = sensor.readDistanceInch();
 
     if (distanceCm < 0) {
-        Serial.println("Sem leitura valida");
+        Serial.println("----------");
     } else {
-        Serial.print("Distancia (cm): ");
+        Serial.print("Distance (cm): ");
         Serial.print(distanceCm);
         Serial.println(" cm");
-        Serial.print("Distancia (in): ");
+        Serial.print("Distance (in): ");
         Serial.print(distanceIn);
         Serial.println(" in");
     }

@@ -12,18 +12,32 @@ void UltrasSimple::begin() {
     digitalWrite(_trigPin, LOW);
 }
 
-float UltrasSimple::readDistanceCm() {
+unsigned long UltrasSimple::read() {
     digitalWrite(_trigPin, HIGH);
     delayMicroseconds(10);
     digitalWrite(_trigPin, LOW);
 
     unsigned long duration = pulseIn(_echoPin, HIGH);
+}
+
+float UltrasSimple::readDistanceCm() {
+    unsigned long duration = read();
 
     if (duration == 0) {
         return -1.0;
     }
 
     return duration * 0.0343 / 2.0;
+}
+
+float UltrasSimple::readDistanceInch() {
+    unsigned long duration = read();
+
+    if (duration == 0) {
+        return -1.0;
+    }
+
+    return duration * 0.0135 / 2.0;
 }
 
 uint8_t UltrasSimple::getTrigPin() {

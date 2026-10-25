@@ -9,10 +9,12 @@ class UltrasSimple {
         uint8_t getTrigPin();
         uint8_t getEchoPin();
         float readDistanceCm();
+        float readDistanceInch();
         void begin();
 
     private:
         uint8_t _trigPin;
+        unsigned long read();
         uint8_t _echoPin;
 };
 #endif

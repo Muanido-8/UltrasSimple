@@ -13,14 +13,11 @@ void UltrasSimple::begin() {
 }
 
 float UltrasSimple::readDistanceCm() {
-    digitalWrite(_trigPin, LOW);
-    delayMicroseconds(2);
-
     digitalWrite(_trigPin, HIGH);
     delayMicroseconds(10);
     digitalWrite(_trigPin, LOW);
 
-    unsigned long duration = pulseIn(_echoPin, HIGH, 30000UL);
+    unsigned long duration = pulseIn(_echoPin, HIGH);
 
     if (duration == 0) {
         return -1.0;
